@@ -1,0 +1,23 @@
+DataBaseBundle\Entity\Typeofclass:
+    type: entity
+    table: typeofclass
+    id:
+        typeofclass:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            id: true
+            column: TypeOfClass
+            generator:
+                strategy: IDENTITY
+    fields:
+        shortformofrecord:
+            type: string
+            nullable: true
+            length: 5
+            options:
+                fixed: false
+            column: ShortFormOfRecord
+    lifecycleCallbacks: {  }

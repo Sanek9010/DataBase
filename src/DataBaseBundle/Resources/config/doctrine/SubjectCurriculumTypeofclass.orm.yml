@@ -1,0 +1,61 @@
+DataBaseBundle\Entity\SubjectCurriculumTypeofclass:
+    type: entity
+    table: subject_curriculum_typeofclass
+    indexes:
+        Curriculum_Subject_Curriculum_TypeOfClass:
+            columns:
+                - NumberOfTheCurriculum
+        TypeOfClass_Subject_Curriculum_TypeOfClass:
+            columns:
+                - TypeOfClass
+        Subject_Subject_Curriculum_TypeOfClass:
+            columns:
+                - CodeOfSubject
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        numberofhours:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: NumberOfHours
+    manyToOne:
+        numberofthecurriculum:
+            targetEntity: Curriculum
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                NumberOfTheCurriculum:
+                    referencedColumnName: NumberOfTheCurriculum
+            orphanRemoval: false
+        codeofsubject:
+            targetEntity: Subject
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                CodeOfSubject:
+                    referencedColumnName: CodeOfSubject
+            orphanRemoval: false
+        typeofclass:
+            targetEntity: Typeofclass
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                TypeOfClass:
+                    referencedColumnName: TypeOfClass
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

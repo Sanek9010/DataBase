@@ -1,0 +1,38 @@
+DataBaseBundle\Entity\Department:
+    type: entity
+    table: department
+    indexes:
+        Faculty_Department:
+            columns:
+                - CodeOfFaculty
+    id:
+        codeofdepartment:
+            type: string
+            nullable: false
+            length: 2
+            options:
+                fixed: false
+            id: true
+            column: CodeOfDepartment
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameofdepartment:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: NameOfDepartment
+    manyToOne:
+        codeoffaculty:
+            targetEntity: Faculty
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                CodeOfFaculty:
+                    referencedColumnName: CodeOfFaculty
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

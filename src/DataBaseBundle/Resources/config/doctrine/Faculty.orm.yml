@@ -1,0 +1,23 @@
+DataBaseBundle\Entity\Faculty:
+    type: entity
+    table: faculty
+    id:
+        codeoffaculty:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            id: true
+            column: CodeOfFaculty
+            generator:
+                strategy: IDENTITY
+    fields:
+        nameoffaculty:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: NameOfFaculty
+    lifecycleCallbacks: {  }

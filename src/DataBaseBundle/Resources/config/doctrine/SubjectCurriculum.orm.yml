@@ -1,0 +1,55 @@
+DataBaseBundle\Entity\SubjectCurriculum:
+    type: entity
+    table: subject_curriculum
+    indexes:
+        Subject_Subject_Curriculum:
+            columns:
+                - CodeOfSubject
+        Curriculum_Subject_Curriculum:
+            columns:
+                - NumberOfTheCurriculum
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        numberofsemester:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: NumberOfSemester
+        typeofexam:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+            column: TypeOfExam
+    manyToOne:
+        numberofthecurriculum:
+            targetEntity: Curriculum
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                NumberOfTheCurriculum:
+                    referencedColumnName: NumberOfTheCurriculum
+            orphanRemoval: false
+        codeofsubject:
+            targetEntity: Subject
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                CodeOfSubject:
+                    referencedColumnName: CodeOfSubject
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

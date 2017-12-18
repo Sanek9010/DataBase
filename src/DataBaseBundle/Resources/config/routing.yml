@@ -1,0 +1,12 @@
+data_base_homepage:
+    path:     /index
+    defaults: { _controller: DataBaseBundle:Main:index }
+
+homepage2:
+    path:     /new
+    defaults: { _controller: DataBaseBundle:Main:new }
+
+
+register_page:
+    path:     /register
+    defaults: { _controller: DataBaseBundle:Registration:register }

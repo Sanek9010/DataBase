@@ -1,0 +1,30 @@
+DataBaseBundle\Entity\Profile:
+    type: entity
+    table: profile
+    indexes:
+        Specialty_Profile:
+            columns:
+                - CodeOfSpecialty
+    id:
+        nameofprofile:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            id: true
+            column: NameOfProfile
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        codeofspecialty:
+            targetEntity: Specialty
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                CodeOfSpecialty:
+                    referencedColumnName: CodeOfSpecialty
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
