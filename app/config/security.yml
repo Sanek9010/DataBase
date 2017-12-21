@@ -1,41 +1,34 @@
 ## To get started with security, check out the documentation:
 ## https://symfony.com/doc/current/security.html
+
 security:
     encoders:
         DataBaseBundle\Entity\User:
             algorithm: bcrypt
-
-    # ...
-
-    #providers:
-        #our_db_provider:
-            #entity:
-                #class: DataBaseBundle:User
-                #property: username
-                # if you're using multiple entity managers
-                # manager_name: customer
-
-    #firewalls:
-        #main:
-            #pattern:    ^/
-            #http_basic: ~
-            #provider: our_db_provider
-
-    # ...
-
-    ## https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
     providers:
-        in_memory:
-            memory: ~
+        our_db_provider:
+                    entity:
+                        class: DataBaseBundle:User
+                        property: username
+
+
 
     firewalls:
         ## disables authentication for assets and the profiler, adapt it according to your needs
         dev:
-            pattern: ^/(_(profiler|wdt)|css|images|js)/
-            security: false
-
+                    pattern: ^/(_(profiler|wdt)|css|images|js)/
+                    security: false
         main:
+            pattern:    ^/
+            provider: our_db_provider
             anonymous: ~
+            form_login:
+                           login_path: login
+                           check_path: login
             ## activate different ways to authenticate
 
             ## https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate

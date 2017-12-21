@@ -5,17 +5,27 @@ DataBaseBundle\Entity\Profile:
         Specialty_Profile:
             columns:
                 - CodeOfSpecialty
+    uniqueConstraints:
+        NameOfProfile_UNIQUE:
+            columns:
+                - NameOfProfile
     id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
         nameofprofile:
             type: string
             nullable: false
             length: 100
             options:
                 fixed: false
-            id: true
             column: NameOfProfile
-            generator:
-                strategy: IDENTITY
     manyToOne:
         codeofspecialty:
             targetEntity: Specialty

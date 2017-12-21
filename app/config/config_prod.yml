@@ -14,7 +14,7 @@ monolog:
             action_level: error
             handler: nested
         nested:
-            type: stream
+            type: error_log
             path: 'php://stderr'
             level: debug
         console:

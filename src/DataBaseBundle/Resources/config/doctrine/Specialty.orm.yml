@@ -5,18 +5,27 @@ DataBaseBundle\Entity\Specialty:
         Faculty_Specialty:
             columns:
                 - CodeOfFaculty
+    uniqueConstraints:
+        CodeOfSpecialty_UNIQUE:
+            columns:
+                - CodeOfSpecialty
     id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
         codeofspecialty:
             type: string
             nullable: false
             length: 6
             options:
                 fixed: false
-            id: true
             column: CodeOfSpecialty
-            generator:
-                strategy: IDENTITY
-    fields:
         nameofspecialty:
             type: string
             nullable: true

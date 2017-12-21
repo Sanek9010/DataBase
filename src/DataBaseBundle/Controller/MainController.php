@@ -21,27 +21,23 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MainController extends Controller
 {
-    public function indexAction()
+    /**
+     * @Route("/index", name="index")
+     */
+    public function indexAction(Request $request)
     {
-        return $this->render('@DataBase/Main/index.html.twig');
+
+        return $this->render('@DataBase/index.html.twig');
     }
 
 
     public function newAction(Request $request)
     {
-        // create a task and give it some dummy data for this example
-        $task = new Task();
-        $task->setTask('Write a blog post');
-        $task->setWtfDate(new \DateTime('tomorrow'));
-
-        $form = $this->createFormBuilder($task)
-            ->add('task', TextType::class)
-            ->add('wtfDate', DateType::class)
-            ->add('save', SubmitType::class, array('label' => 'Create Task'))
-            ->getForm();
-
-        return $this->render('@DataBase/Main/new.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        $login = strtolower(htmlspecialchars($_POST["login"]));
+        $repository = $this->getDoctrine()->getRepository(User::class);
+        $userDB = $repository->findOneBy(['username' => $login]);
+        $test = ($userDB!=null);
+        echo $test;
+        die();
     }
 }

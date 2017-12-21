@@ -7,19 +7,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Department
  *
- * @ORM\Table(name="department", indexes={@ORM\Index(name="Faculty_Department", columns={"CodeOfFaculty"})})
+ * @ORM\Table(name="department", uniqueConstraints={@ORM\UniqueConstraint(name="CodeOfDepartment_UNIQUE", columns={"CodeOfDepartment"})}, indexes={@ORM\Index(name="Faculty_Department", columns={"CodeOfFaculty"})})
  * @ORM\Entity
  */
 class Department
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="CodeOfDepartment", type="string", length=2)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codeofdepartment;
+    private $id;
 
     /**
      * @var string
@@ -27,6 +27,13 @@ class Department
      * @ORM\Column(name="NameOfDepartment", type="string", length=50, nullable=true)
      */
     private $nameofdepartment;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeOfDepartment", type="string", length=2, nullable=false)
+     */
+    private $codeofdepartment;
 
     /**
      * @var \DataBaseBundle\Entity\Faculty

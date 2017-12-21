@@ -1,18 +1,27 @@
 DataBaseBundle\Entity\Typeofclass:
     type: entity
     table: typeofclass
+    uniqueConstraints:
+        TypeOfClass_UNIQUE:
+            columns:
+                - TypeOfClass
     id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
         typeofclass:
             type: string
             nullable: false
             length: 20
             options:
                 fixed: false
-            id: true
             column: TypeOfClass
-            generator:
-                strategy: IDENTITY
-    fields:
         shortformofrecord:
             type: string
             nullable: true

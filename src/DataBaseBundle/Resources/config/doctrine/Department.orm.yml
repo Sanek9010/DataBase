@@ -5,15 +5,17 @@ DataBaseBundle\Entity\Department:
         Faculty_Department:
             columns:
                 - CodeOfFaculty
+    uniqueConstraints:
+        CodeOfDepartment_UNIQUE:
+            columns:
+                - CodeOfDepartment
     id:
-        codeofdepartment:
-            type: string
+        id:
+            type: integer
             nullable: false
-            length: 2
             options:
-                fixed: false
+                unsigned: false
             id: true
-            column: CodeOfDepartment
             generator:
                 strategy: IDENTITY
     fields:
@@ -24,6 +26,13 @@ DataBaseBundle\Entity\Department:
             options:
                 fixed: false
             column: NameOfDepartment
+        codeofdepartment:
+            type: string
+            nullable: false
+            length: 2
+            options:
+                fixed: false
+            column: CodeOfDepartment
     manyToOne:
         codeoffaculty:
             targetEntity: Faculty

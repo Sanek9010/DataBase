@@ -7,17 +7,24 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Typeofclass
  *
- * @ORM\Table(name="typeofclass")
+ * @ORM\Table(name="typeofclass", uniqueConstraints={@ORM\UniqueConstraint(name="TypeOfClass_UNIQUE", columns={"TypeOfClass"})})
  * @ORM\Entity
  */
 class Typeofclass
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="TypeOfClass", type="string", length=20)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TypeOfClass", type="string", length=20, nullable=false)
      */
     private $typeofclass;
 

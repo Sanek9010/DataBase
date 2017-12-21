@@ -23,317 +23,415 @@
     <table id="17" parent="2" name="subject_curriculum_typeofclass"/>
     <table id="18" parent="2" name="typeofclass"/>
     <table id="19" parent="2" name="user"/>
-    <column id="20" parent="10" name="DateOfCreation">
+    <column id="20" parent="10" name="id">
       <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="10" name="DateOfCreation">
+      <Position>2</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="21" parent="10" name="NumberOfTheCurriculum">
-      <Position>2</Position>
+    <column id="22" parent="10" name="NumberOfTheCurriculum">
+      <Position>3</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="22" parent="10" name="AssignedAcademicDegree">
-      <Position>3</Position>
+    <column id="23" parent="10" name="AssignedAcademicDegree">
+      <Position>4</Position>
       <DataType>varchar(15)|0</DataType>
     </column>
-    <column id="23" parent="10" name="NormativeEducationPeriod">
-      <Position>4</Position>
+    <column id="24" parent="10" name="NormativeEducationPeriod">
+      <Position>5</Position>
       <DataType>int(1)|0</DataType>
     </column>
-    <column id="24" parent="10" name="FormOfStudy">
-      <Position>5</Position>
+    <column id="25" parent="10" name="FormOfStudy">
+      <Position>6</Position>
       <DataType>varchar(10)|0</DataType>
     </column>
-    <column id="25" parent="10" name="FGOS">
-      <Position>6</Position>
+    <column id="26" parent="10" name="FGOS">
+      <Position>7</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="26" parent="10" name="NameOfProfile">
-      <Position>7</Position>
+    <column id="27" parent="10" name="NameOfProfile">
+      <Position>8</Position>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <index id="27" parent="10" name="Profile_Curriculum">
+    <index id="28" parent="10" name="Profile_Curriculum">
       <ColNames>NameOfProfile</ColNames>
     </index>
-    <key id="28" parent="10" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <index id="29" parent="10" name="NumberOfTheCurriculum_UNIQUE">
       <ColNames>NumberOfTheCurriculum</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="29" parent="10" name="Profile_Curriculum">
+    <key id="31" parent="10" name="NumberOfTheCurriculum_UNIQUE">
+      <ColNames>NumberOfTheCurriculum</ColNames>
+      <UnderlyingIndexName>NumberOfTheCurriculum_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="32" parent="10" name="Profile_Curriculum">
       <ColNames>NameOfProfile</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>profile</RefTableName>
       <RefColNames>NameOfProfile</RefColNames>
     </foreign-key>
-    <column id="30" parent="11" name="NameOfDepartment">
+    <column id="33" parent="11" name="id">
       <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="11" name="NameOfDepartment">
+      <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="31" parent="11" name="CodeOfDepartment">
-      <Position>2</Position>
+    <column id="35" parent="11" name="CodeOfDepartment">
+      <Position>3</Position>
       <DataType>varchar(2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="11" name="CodeOfFaculty">
-      <Position>3</Position>
+    <column id="36" parent="11" name="CodeOfFaculty">
+      <Position>4</Position>
       <DataType>varchar(10)|0</DataType>
     </column>
-    <index id="33" parent="11" name="Faculty_Department">
+    <index id="37" parent="11" name="Faculty_Department">
       <ColNames>CodeOfFaculty</ColNames>
     </index>
-    <key id="34" parent="11" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <index id="38" parent="11" name="CodeOfDepartment_UNIQUE">
       <ColNames>CodeOfDepartment</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="39" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="35" parent="11" name="Faculty_Department">
+    <key id="40" parent="11" name="CodeOfDepartment_UNIQUE">
+      <ColNames>CodeOfDepartment</ColNames>
+      <UnderlyingIndexName>CodeOfDepartment_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="41" parent="11" name="Faculty_Department">
       <ColNames>CodeOfFaculty</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>faculty</RefTableName>
       <RefColNames>CodeOfFaculty</RefColNames>
     </foreign-key>
-    <column id="36" parent="12" name="NameOfFaculty">
+    <column id="42" parent="12" name="id">
       <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="43" parent="12" name="NameOfFaculty">
+      <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="37" parent="12" name="CodeOfFaculty">
-      <Position>2</Position>
+    <column id="44" parent="12" name="CodeOfFaculty">
+      <Position>3</Position>
       <DataType>varchar(10)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="38" parent="12" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <index id="45" parent="12" name="CodeOfFaculty_UNIQUE">
       <ColNames>CodeOfFaculty</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="46" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="39" parent="13" name="NameOfProfile">
+    <key id="47" parent="12" name="CodeOfFaculty_UNIQUE">
+      <ColNames>CodeOfFaculty</ColNames>
+      <UnderlyingIndexName>CodeOfFaculty_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="48" parent="13" name="id">
       <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="49" parent="13" name="NameOfProfile">
+      <Position>2</Position>
       <DataType>varchar(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="40" parent="13" name="CodeOfSpecialty">
-      <Position>2</Position>
+    <column id="50" parent="13" name="CodeOfSpecialty">
+      <Position>3</Position>
       <DataType>varchar(6)|0</DataType>
     </column>
-    <index id="41" parent="13" name="Specialty_Profile">
+    <index id="51" parent="13" name="Specialty_Profile">
       <ColNames>CodeOfSpecialty</ColNames>
     </index>
-    <key id="42" parent="13" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <index id="52" parent="13" name="NameOfProfile_UNIQUE">
       <ColNames>NameOfProfile</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="53" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="43" parent="13" name="Specialty_Profile">
+    <key id="54" parent="13" name="NameOfProfile_UNIQUE">
+      <ColNames>NameOfProfile</ColNames>
+      <UnderlyingIndexName>NameOfProfile_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="55" parent="13" name="Specialty_Profile">
       <ColNames>CodeOfSpecialty</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>specialty</RefTableName>
       <RefColNames>CodeOfSpecialty</RefColNames>
     </foreign-key>
-    <column id="44" parent="14" name="CodeOfSpecialty">
+    <column id="56" parent="14" name="id">
       <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="57" parent="14" name="CodeOfSpecialty">
+      <Position>2</Position>
       <DataType>varchar(6)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="45" parent="14" name="NameOfSpecialty">
-      <Position>2</Position>
+    <column id="58" parent="14" name="NameOfSpecialty">
+      <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="46" parent="14" name="CodeOfFaculty">
-      <Position>3</Position>
+    <column id="59" parent="14" name="CodeOfFaculty">
+      <Position>4</Position>
       <DataType>varchar(10)|0</DataType>
     </column>
-    <index id="47" parent="14" name="Faculty_Specialty">
+    <index id="60" parent="14" name="Faculty_Specialty">
       <ColNames>CodeOfFaculty</ColNames>
     </index>
-    <key id="48" parent="14" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <index id="61" parent="14" name="CodeOfSpecialty_UNIQUE">
       <ColNames>CodeOfSpecialty</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="62" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="49" parent="14" name="Faculty_Specialty">
+    <key id="63" parent="14" name="CodeOfSpecialty_UNIQUE">
+      <ColNames>CodeOfSpecialty</ColNames>
+      <UnderlyingIndexName>CodeOfSpecialty_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="64" parent="14" name="Faculty_Specialty">
       <ColNames>CodeOfFaculty</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>faculty</RefTableName>
       <RefColNames>CodeOfFaculty</RefColNames>
     </foreign-key>
-    <column id="50" parent="15" name="NameOfSubject">
+    <column id="65" parent="15" name="id">
       <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="66" parent="15" name="NameOfSubject">
+      <Position>2</Position>
       <DataType>varchar(50)|0</DataType>
     </column>
-    <column id="51" parent="15" name="CodeOfSubject">
-      <Position>2</Position>
+    <column id="67" parent="15" name="CodeOfSubject">
+      <Position>3</Position>
       <DataType>varchar(5)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="52" parent="15" name="CodeOfDepartment">
-      <Position>3</Position>
+    <column id="68" parent="15" name="CodeOfDepartment">
+      <Position>4</Position>
       <DataType>varchar(2)|0</DataType>
     </column>
-    <index id="53" parent="15" name="Department_Subject">
+    <index id="69" parent="15" name="Department_Subject">
       <ColNames>CodeOfDepartment</ColNames>
     </index>
-    <key id="54" parent="15" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <index id="70" parent="15" name="CodeOfSubject_UNIQUE">
       <ColNames>CodeOfSubject</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="71" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="55" parent="15" name="Department_Subject">
+    <key id="72" parent="15" name="CodeOfSubject_UNIQUE">
+      <ColNames>CodeOfSubject</ColNames>
+      <UnderlyingIndexName>CodeOfSubject_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="73" parent="15" name="Department_Subject">
       <ColNames>CodeOfDepartment</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>department</RefTableName>
       <RefColNames>CodeOfDepartment</RefColNames>
     </foreign-key>
-    <column id="56" parent="16" name="id">
+    <column id="74" parent="16" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="57" parent="16" name="NumberOfSemester">
+    <column id="75" parent="16" name="NumberOfSemester">
       <Position>2</Position>
       <DataType>int(2)|0</DataType>
     </column>
-    <column id="58" parent="16" name="TypeOfExam">
+    <column id="76" parent="16" name="TypeOfExam">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <column id="59" parent="16" name="NumberOfTheCurriculum">
+    <column id="77" parent="16" name="NumberOfTheCurriculum">
       <Position>4</Position>
       <DataType>varchar(10)|0</DataType>
     </column>
-    <column id="60" parent="16" name="CodeOfSubject">
+    <column id="78" parent="16" name="CodeOfSubject">
       <Position>5</Position>
       <DataType>varchar(5)|0</DataType>
     </column>
-    <index id="61" parent="16" name="Subject_Subject_Curriculum">
+    <index id="79" parent="16" name="Subject_Subject_Curriculum">
       <ColNames>CodeOfSubject</ColNames>
     </index>
-    <index id="62" parent="16" name="Curriculum_Subject_Curriculum">
+    <index id="80" parent="16" name="Curriculum_Subject_Curriculum">
       <ColNames>NumberOfTheCurriculum</ColNames>
     </index>
-    <key id="63" parent="16" name="PRIMARY">
+    <key id="81" parent="16" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="64" parent="16" name="Curriculum_Subject_Curriculum">
+    <foreign-key id="82" parent="16" name="Curriculum_Subject_Curriculum">
       <ColNames>NumberOfTheCurriculum</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>curriculum</RefTableName>
       <RefColNames>NumberOfTheCurriculum</RefColNames>
     </foreign-key>
-    <foreign-key id="65" parent="16" name="Subject_Subject_Curriculum">
+    <foreign-key id="83" parent="16" name="Subject_Subject_Curriculum">
       <ColNames>CodeOfSubject</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>subject</RefTableName>
       <RefColNames>CodeOfSubject</RefColNames>
     </foreign-key>
-    <column id="66" parent="17" name="id">
+    <column id="84" parent="17" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="67" parent="17" name="NumberOfHours">
+    <column id="85" parent="17" name="NumberOfHours">
       <Position>2</Position>
       <DataType>int(3)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="68" parent="17" name="CodeOfSubject">
+    <column id="86" parent="17" name="CodeOfSubject">
       <Position>3</Position>
       <DataType>varchar(5)|0</DataType>
     </column>
-    <column id="69" parent="17" name="NumberOfTheCurriculum">
+    <column id="87" parent="17" name="NumberOfTheCurriculum">
       <Position>4</Position>
       <DataType>varchar(10)|0</DataType>
     </column>
-    <column id="70" parent="17" name="TypeOfClass">
+    <column id="88" parent="17" name="TypeOfClass">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
     </column>
-    <index id="71" parent="17" name="Curriculum_Subject_Curriculum_TypeOfClass">
+    <index id="89" parent="17" name="Curriculum_Subject_Curriculum_TypeOfClass">
       <ColNames>NumberOfTheCurriculum</ColNames>
     </index>
-    <index id="72" parent="17" name="TypeOfClass_Subject_Curriculum_TypeOfClass">
+    <index id="90" parent="17" name="TypeOfClass_Subject_Curriculum_TypeOfClass">
       <ColNames>TypeOfClass</ColNames>
     </index>
-    <index id="73" parent="17" name="Subject_Subject_Curriculum_TypeOfClass">
+    <index id="91" parent="17" name="Subject_Subject_Curriculum_TypeOfClass">
       <ColNames>CodeOfSubject</ColNames>
     </index>
-    <key id="74" parent="17" name="PRIMARY">
+    <key id="92" parent="17" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="75" parent="17" name="Subject_Subject_Curriculum_TypeOfClass">
+    <foreign-key id="93" parent="17" name="Subject_Subject_Curriculum_TypeOfClass">
       <ColNames>CodeOfSubject</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>subject</RefTableName>
       <RefColNames>CodeOfSubject</RefColNames>
     </foreign-key>
-    <foreign-key id="76" parent="17" name="Curriculum_Subject_Curriculum_TypeOfClass">
+    <foreign-key id="94" parent="17" name="Curriculum_Subject_Curriculum_TypeOfClass">
       <ColNames>NumberOfTheCurriculum</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>curriculum</RefTableName>
       <RefColNames>NumberOfTheCurriculum</RefColNames>
     </foreign-key>
-    <foreign-key id="77" parent="17" name="TypeOfClass_Subject_Curriculum_TypeOfClass">
+    <foreign-key id="95" parent="17" name="TypeOfClass_Subject_Curriculum_TypeOfClass">
       <ColNames>TypeOfClass</ColNames>
       <RefSchemaName>study_plan</RefSchemaName>
       <RefTableName>typeofclass</RefTableName>
       <RefColNames>TypeOfClass</RefColNames>
     </foreign-key>
-    <column id="78" parent="18" name="TypeOfClass">
-      <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="79" parent="18" name="ShortFormOfRecord">
-      <Position>2</Position>
-      <DataType>varchar(5)|0</DataType>
-    </column>
-    <key id="80" parent="18" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>TypeOfClass</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="81" parent="19" name="id">
+    <column id="96" parent="18" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="82" parent="19" name="username">
+    <column id="97" parent="18" name="TypeOfClass">
       <Position>2</Position>
-      <DataType>varchar(25)|0</DataType>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
-    <column id="83" parent="19" name="password">
+    <column id="98" parent="18" name="ShortFormOfRecord">
       <Position>3</Position>
-      <DataType>varchar(64)|0</DataType>
+      <DataType>varchar(5)|0</DataType>
     </column>
-    <column id="84" parent="19" name="email">
-      <Position>4</Position>
-      <DataType>varchar(60)|0</DataType>
-    </column>
-    <index id="85" parent="19" name="email_UNIQUE">
-      <ColNames>email</ColNames>
+    <index id="99" parent="18" name="TypeOfClass_UNIQUE">
+      <ColNames>TypeOfClass</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="86" parent="19" name="username_UNIQUE">
-      <ColNames>username</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="87" parent="19" name="PRIMARY">
+    <key id="100" parent="18" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="88" parent="19" name="username_UNIQUE">
+    <key id="101" parent="18" name="TypeOfClass_UNIQUE">
+      <ColNames>TypeOfClass</ColNames>
+      <UnderlyingIndexName>TypeOfClass_UNIQUE</UnderlyingIndexName>
+    </key>
+    <column id="102" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="103" parent="19" name="username">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+    </column>
+    <column id="104" parent="19" name="password">
+      <Position>3</Position>
+      <DataType>varchar(64)|0</DataType>
+    </column>
+    <column id="105" parent="19" name="email">
+      <Position>4</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <index id="106" parent="19" name="email_UNIQUE">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="107" parent="19" name="username_UNIQUE">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="108" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="109" parent="19" name="username_UNIQUE">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>username_UNIQUE</UnderlyingIndexName>
     </key>
-    <key id="89" parent="19" name="email_UNIQUE">
+    <key id="110" parent="19" name="email_UNIQUE">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>email_UNIQUE</UnderlyingIndexName>
     </key>

@@ -7,19 +7,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Curriculum
  *
- * @ORM\Table(name="curriculum", indexes={@ORM\Index(name="Profile_Curriculum", columns={"NameOfProfile"})})
+ * @ORM\Table(name="curriculum", uniqueConstraints={@ORM\UniqueConstraint(name="NumberOfTheCurriculum_UNIQUE", columns={"NumberOfTheCurriculum"})}, indexes={@ORM\Index(name="Profile_Curriculum", columns={"NameOfProfile"})})
  * @ORM\Entity
  */
 class Curriculum
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="NumberOfTheCurriculum", type="string", length=10)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $numberofthecurriculum;
+    private $id;
 
     /**
      * @var \DateTime
@@ -27,6 +27,13 @@ class Curriculum
      * @ORM\Column(name="DateOfCreation", type="date", nullable=true)
      */
     private $dateofcreation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NumberOfTheCurriculum", type="string", length=10, nullable=false)
+     */
+    private $numberofthecurriculum;
 
     /**
      * @var string

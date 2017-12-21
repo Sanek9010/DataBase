@@ -1,15 +1,17 @@
 DataBaseBundle\Entity\Faculty:
     type: entity
     table: faculty
+    uniqueConstraints:
+        CodeOfFaculty_UNIQUE:
+            columns:
+                - CodeOfFaculty
     id:
-        codeoffaculty:
-            type: string
+        id:
+            type: integer
             nullable: false
-            length: 10
             options:
-                fixed: false
+                unsigned: false
             id: true
-            column: CodeOfFaculty
             generator:
                 strategy: IDENTITY
     fields:
@@ -20,4 +22,11 @@ DataBaseBundle\Entity\Faculty:
             options:
                 fixed: false
             column: NameOfFaculty
+        codeoffaculty:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+            column: CodeOfFaculty
     lifecycleCallbacks: {  }

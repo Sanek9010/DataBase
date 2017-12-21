@@ -5,15 +5,17 @@ DataBaseBundle\Entity\Subject:
         Department_Subject:
             columns:
                 - CodeOfDepartment
+    uniqueConstraints:
+        CodeOfSubject_UNIQUE:
+            columns:
+                - CodeOfSubject
     id:
-        codeofsubject:
-            type: string
+        id:
+            type: integer
             nullable: false
-            length: 5
             options:
-                fixed: false
+                unsigned: false
             id: true
-            column: CodeOfSubject
             generator:
                 strategy: IDENTITY
     fields:
@@ -24,6 +26,13 @@ DataBaseBundle\Entity\Subject:
             options:
                 fixed: false
             column: NameOfSubject
+        codeofsubject:
+            type: string
+            nullable: false
+            length: 5
+            options:
+                fixed: false
+            column: CodeOfSubject
     manyToOne:
         codeofdepartment:
             targetEntity: Department

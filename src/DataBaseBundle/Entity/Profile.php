@@ -7,17 +7,24 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Profile
  *
- * @ORM\Table(name="profile", indexes={@ORM\Index(name="Specialty_Profile", columns={"CodeOfSpecialty"})})
+ * @ORM\Table(name="profile", uniqueConstraints={@ORM\UniqueConstraint(name="NameOfProfile_UNIQUE", columns={"NameOfProfile"})}, indexes={@ORM\Index(name="Specialty_Profile", columns={"CodeOfSpecialty"})})
  * @ORM\Entity
  */
 class Profile
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="NameOfProfile", type="string", length=100)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NameOfProfile", type="string", length=100, nullable=false)
      */
     private $nameofprofile;
 

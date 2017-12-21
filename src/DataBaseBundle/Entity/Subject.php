@@ -7,19 +7,19 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Subject
  *
- * @ORM\Table(name="subject", indexes={@ORM\Index(name="Department_Subject", columns={"CodeOfDepartment"})})
+ * @ORM\Table(name="subject", uniqueConstraints={@ORM\UniqueConstraint(name="CodeOfSubject_UNIQUE", columns={"CodeOfSubject"})}, indexes={@ORM\Index(name="Department_Subject", columns={"CodeOfDepartment"})})
  * @ORM\Entity
  */
 class Subject
 {
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="CodeOfSubject", type="string", length=5)
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $codeofsubject;
+    private $id;
 
     /**
      * @var string
@@ -27,6 +27,13 @@ class Subject
      * @ORM\Column(name="NameOfSubject", type="string", length=50, nullable=true)
      */
     private $nameofsubject;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CodeOfSubject", type="string", length=5, nullable=false)
+     */
+    private $codeofsubject;
 
     /**
      * @var \DataBaseBundle\Entity\Department
