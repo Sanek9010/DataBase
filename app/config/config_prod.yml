@@ -1,6 +1,11 @@
 imports:
     - { resource: config.yml }
+    - { resource: config_prod_secrets.php }
 
+framework:
+    session:
+        # set handler_id to null to use default session handler from php.ini (memcached)
+        handler_id:  ~
 #doctrine:
 #    orm:
 #        metadata_cache_driver: apc
@@ -15,8 +20,8 @@ monolog:
             handler: nested
         nested:
             type: error_log
-            path: 'php://stderr'
-            level: debug
+#            path: 'php://stderr'
+#            level: debug
         console:
             type: console
             process_psr_3_messages: false
