@@ -26,7 +26,6 @@
 <h3>Создание учебного плана</h3>
 
 
-
 <div class="container-fluid border border-dark col-centered bg-light" id="faculty">
     {% if (is_granted('IS_AUTHENTICATED_FULLY')==false) %}
 
@@ -35,57 +34,37 @@
 
         {{ form_start(form2) }}
 
-        {{ form_label(form2.nameoffaculty) }}
+        Выберите факультет из списка:
         {{ form_widget(form2.nameoffaculty) }}
 
         {{ form_end(form2) }}
 
+        Или добавьте новый:
+
         {{ form_start(form) }}
-        {{ form_label(form.nameoffaculty) }}
+        Название факультета:
         {{ form_widget(form.nameoffaculty) }}
         {{ form_errors(form.nameoffaculty) }}
 
-        {{ form_label(form.codeoffaculty) }}
+        Код факультета:
         {{ form_widget(form.codeoffaculty) }}
         {{ form_errors(form.codeoffaculty) }}
-        <button type="submit">Register!</button>
+
+        {{ form_widget(form.submit) }}
+
         {{ form_end(form) }}
 
         <br />
         <br />
     {% endif %}
 
-</div>
-
-<div class="container-fluid border border-dark col-centered bg-light" id="specialty2">
-    {% if (is_granted('IS_AUTHENTICATED_FULLY')==false) %}
-
-    {% else %}
-        <br />
-
-        {{ form_start(form4) }}
-        {{ form_label(form4.nameofspecialty) }}
-        {{ form_widget(form4.nameofspecialty) }}
-        {{ form_end(form4) }}
-
-        {#{{ form_start(form4) }}#}
-        {#{{ form_label(form4.) }}#}
-        {#{{ form_widget(form.nameoffaculty) }}#}
-        {#{{ form_errors(form.nameoffaculty) }}#}
-
-        {#{{ form_label(form.codeoffaculty) }}#}
-        {#{{ form_widget(form.codeoffaculty) }}#}
-        {#{{ form_errors(form.codeoffaculty) }}#}
-
-        {#<button type="submit">Register!</button>#}
-
-        {#{{ form_end(form) }}#}
-
-        <br />
-        <br />
-    {% endif %}
 
 </div>
+
+<br />
+<input type="button" value="На главную" onClick='location.href="{{ path('homepage') }}"'>
+{#{{ render(controller('DataBaseBundle:Specialty:choice')) }}#}
+
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

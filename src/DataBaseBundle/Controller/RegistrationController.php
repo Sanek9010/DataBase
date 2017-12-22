@@ -30,11 +30,17 @@ class RegistrationController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(User::class);
             $userDB = $repository->findOneBy(['username' => $user->getUsername()]);
+            $userDB2 = $repository->findOneBy(['email' => $user->getEmail()]);
 
 
             if ($userDB) {
-                throw $this->createNotFoundException(
+                echo(
                     'Логин занят: '.$user->getUsername()
+                );
+            }
+            else if ($userDB2){
+                echo(
+                    'Email занят: '.$user->getEmail()
                 );
             }
             else {
@@ -42,11 +48,10 @@ class RegistrationController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($user);
                 $em->flush();
+                return $this->redirectToRoute('login');
             }
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
-
-            return $this->redirectToRoute('login');
         }
 
         return $this->render(

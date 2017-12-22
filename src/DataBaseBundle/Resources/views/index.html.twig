@@ -24,7 +24,7 @@
 
     <br />
 </header>
-<div class="container-fluid border border-dark col-md-3 col-centered bg-light text-center">
+<div class="container-fluid border border-dark col-md-4 col-centered bg-light text-center">
     {% if (is_granted('IS_AUTHENTICATED_FULLY')==false) %}
         <br />
         <input type="button" value="Зарегистрироваться" onClick='location.href="{{ path('register_page') }}"'>
@@ -32,6 +32,11 @@
         <br />
         <br />
     {% else %}
+        <br />
+        <input type="button" value="Посмотреть существующие учебные планы" onClick='location.href="{{ path('show') }}"'>
+        <input type="button" value="Создать учебный план" onClick='location.href="{{ path('create') }}"'>
+        <br />
+        <br />
 
     {% endif %}
 

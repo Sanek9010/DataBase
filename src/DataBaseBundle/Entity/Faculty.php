@@ -83,6 +83,10 @@ class Faculty
         $this->codeoffaculty = $codeoffaculty;
     }
 
+    public function __toString(){
+        return $this->getNameoffaculty().". Код:".$this->getCodeoffaculty();
+    }
+
 
 
 

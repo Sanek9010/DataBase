@@ -24,8 +24,6 @@ class FacultyController extends Controller
         $form2 = $this->createFormBuilder()
             ->add('nameoffaculty', EntityType::class, array(
                 'class' => 'DataBaseBundle\Entity\Faculty',
-
-                'choice_label' => 'nameoffaculty'
             ))
             ->getForm();
 

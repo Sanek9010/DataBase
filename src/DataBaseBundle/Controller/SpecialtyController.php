@@ -55,10 +55,9 @@ class SpecialtyController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('create');
         }
 
-        return $this->render('@DataBase/Main/create.html.twig',array(
+        return $this->render('@DataBase/atom/specialty.html.twig',array(
             'form' => $form3->createView(), 'form2' => $form4->createView()
         ));
     }

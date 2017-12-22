@@ -40,4 +40,14 @@ class MainController extends Controller
         echo $test;
         die();
     }
+
+    public function createAction(Request $request)
+    {
+        return $this->render('@DataBase/Main/create.html.twig');
+    }
+
+    public function showAction(Request $request)
+    {
+        return $this->render('@DataBase/Main/show.html.twig');
+    }
 }

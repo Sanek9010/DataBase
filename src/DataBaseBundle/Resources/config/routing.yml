@@ -19,3 +19,7 @@ create:
     path:     /create
     defaults: { _controller: DataBaseBundle:Faculty:choice }
 
+show:
+    path:     /show
+    defaults: { _controller: DataBaseBundle:Main:show }
+

@@ -22,6 +22,7 @@ class SpecialtyForm extends AbstractType
         $builder
             ->add('nameofspecialty', TextType::class)
             ->add('codeofspecialty',TextType::class)
+            //->add('codeoffaculty',Faculty::class)
         ;
     }
 

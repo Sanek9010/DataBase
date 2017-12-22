@@ -27,7 +27,7 @@
 <div class="container-fluid border border-dark col-md-3 col-centered bg-light text-center" >
 
     {{ form_start(form) }}
-    {{ form_label(form.username) }} <br />
+    Логин <br />
     {{ form_widget(form.username, {'attr': {'onkeyup': 'checkLogin(this.value)'}}) }}  <br />
     <span id="check_login"></span>
     {{ form_errors(form.username) }} <br />
@@ -36,19 +36,16 @@
     {{ form_widget(form.email) }} <br />
     {{ form_errors(form.email) }} <br />
 
-    {{ form_label(form.plainPassword.first) }} <br />
+    Пароль <br />
     {{ form_widget(form.plainPassword.first) }} <br />
     {{ form_errors(form.plainPassword.first) }} <br />
 
-    {{ form_label(form.plainPassword.second) }} <br />
+    Пароль ещё раз <br />
     {{ form_widget(form.plainPassword.second) }} <br />
     {{ form_errors(form.plainPassword.second) }} <br />
-    {#{{ form_row(form.username) }}#}
-    {#{{ form_row(form.email) }}#}
-    {#{{ form_row(form.plainPassword.first) }}#}
-    {#{{ form_row(form.plainPassword.second) }}#}
-    <input type="button" value="Назад" onClick='location.href="{{ path('homepage') }}"'>
-    <button type="submit">Register!</button>
+
+    <input type="button" value="На главную" onClick='location.href="{{ path('homepage') }}"'>
+    <button type="submit">Зарегистрироваться</button>
     <br />
     <br />
     {{ form_end(form) }}
